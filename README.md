@@ -4,6 +4,8 @@ A new Flutter project for a quizz application for Android and iOS.
 
 You will find notes on Flutter + Dart programming in *noted.md*.
 
+**FAIR WARNING:** This material is filled with comments on the code explaining exactly what each thing is and does. Please do not be scared of the length of comments and code, it is simply for clarification and reminders for learners.
+
 ## Getting Started
 
 This project is a starting point for a Flutter application.
