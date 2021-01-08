@@ -1,6 +1,6 @@
-# **Notes for programming in Dart**
+# Notes for programming in Dart
 
-## **Functions**
+## Functions
 
 ```
 void main() {
@@ -40,16 +40,17 @@ void main() {
 }
 ```
 
-## **Data types**
+## Data types
 
 * Text:
   * strings (`String`)
 * Numbers: 
   * integers (`int`)
   * floats (`double`)
+* Lists (`List<dataType> name = [...]`)
 
 
-## **Variables & Objects**
+## Variables & Objects
 
 When introduced, use the keyword **var** or the type of data the variable will store.
 
@@ -73,7 +74,7 @@ void main() {
 
 **In Dart, every value is an object**, even primitive values like text (= String) or numbers (= Integers and Doubles). But you also have more complex built-in objects (e.g. Lists of data) and you can build your own objects.
 
-## **Classes**
+## Classes
 
 A class allows you to define a blueprint for the objects utilized, based on which you can then create (“instantiate”) the objects.
 
@@ -101,7 +102,7 @@ void main() {
 }
 ```
 
-### **Constructors**
+### Constructors
 
 A constructor is a method (function) in a class that is executed only once, when an object of the class is declared. A constructor can receive arguments (parameters) that would be defined when the class is called.
 
@@ -200,9 +201,18 @@ class Person {
 }
 ```
 
-## **Widgets**
+## Widgets
 
 **Flutter is about widgets.** Every flutter app you build, is just a bunch of widgets.
 
 A Widget is a UI block that you can see on the screen. It's a special type of object. So to create a widget, you need to create a class, that extends the `StatelessWidget` class or the `StatefulWidget` class from the package `package:flutter/material.dart` and implement the function `build()` that will executed when building the widget to be shown.
 
+### Visible & Invisible widgets
+
+**Visible widgets** are related to user inputs and data outputs. These widgets are things like buttons, texts or cards. These widgets are drawned onto the screen.
+
+**Invisible widgets** are the ones that help with layouts and controlling how the widget tree behaves and looks like, helping with the structure of the content on the application. These widgets are things like columns, rows, ListViews, etc.
+
+Invisible widgets are shipped with Flutter, so we don't really have to build them ourselves
+
+**The container() widget** kind of belongs into both categories, because it is invisible by default but you can also give it some styling so that it is visible and drawn into the screen.

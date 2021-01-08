@@ -35,7 +35,29 @@ class MyApp extends StatelessWidget {
         appBar: AppBar(
           title: Text('My first App'),
         ),
-        body: Text('This is my default text!'),
+        //this body will contain a column, which holds a list of widgets
+        body: Column(
+          /* you can specify the data type the list will contain
+            children: <Widget>[]
+           but since all items are widgets, Dart will automatically recognize
+           the data type of the items and assign it to the list
+           */
+          children: [
+            Text('What is your favorite color?'),
+            RaisedButton(
+              child: Text('Red'),
+              onPressed: null,
+            ),
+            RaisedButton(
+              child: Text('Green'),
+              onPressed: null,
+            ),
+            RaisedButton(
+              child: Text('Blue'),
+              onPressed: null,
+            )
+          ],
+        ),
       ),
     );
   }
