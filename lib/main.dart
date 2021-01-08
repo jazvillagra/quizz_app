@@ -29,6 +29,14 @@ class MyApp extends StatelessWidget {
   // rendered onto the screen
   Widget build(BuildContext context) {
     // MaterialApp takes named arguments
-    return MaterialApp(home: Text('Hello!'));
+    // Scaffold() creates a base page design for the app
+    return MaterialApp(
+      home: Scaffold(
+        appBar: AppBar(
+          title: Text('My first App'),
+        ),
+        body: Text('This is my default text!'),
+      ),
+    );
   }
 }
