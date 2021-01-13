@@ -216,3 +216,17 @@ A Widget is a UI block that you can see on the screen. It's a special type of ob
 Invisible widgets are shipped with Flutter, so we don't really have to build them ourselves
 
 **The container() widget** kind of belongs into both categories, because it is invisible by default but you can also give it some styling so that it is visible and drawn into the screen.
+
+Your object, so your classes, should always work standalone, so everything that belongs to a widget should go into **the same class**, all the data a widget uses and so on should belong into the same class so that the widget is a **standalone unit.**
+
+### Stateful vs Stateless widgets
+
+**Stateless widgets** cannot have state, hence, they are **static** widgets. These widgets are there specifically to output something, so we're only concerned with ouputting the data with certain styles, colors, structure, etc.
+
+For example, `Text()` is a **stateless widget.**
+
+**Stateful widgets** can have states, which means the data, structure and other things **can change** at any point in the application.
+
+The difference between **stateless and stateful widgets** is that in a stateless widget, we have our widget and the build method which is used to render the UI. We can pass in data from outside into the stateless widget **through the constructor of that widget class, and this data can change (externally)**. Flutter would rebuild that widget when that external data changes, but **inside of the widget class, the data will never change**, we can only receive new data from outside and that will basically rebuild the widget.
+
+Now, a stateful widget also has a build method that builds a widget and that renders a UI. But here, we can also get our input data, so data passed in through the constructor of the widget class, but we can also have some internal state, and that's the core thing here. This widget will get re-rendered, so the user interface will get updated by Flutter **whenever either that external or internal state changed**. 
