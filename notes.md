@@ -1,5 +1,20 @@
 # Notes for programming in Dart
 
+# Table of content
+
+- [Notes for programming in Dart](#notes-for-programming-in-dart)
+- [Table of content](#table-of-content)
+  * [Functions](#functions)
+  * [Data types](#data-types)
+  * [Variables & Objects](#variables---objects)
+  * [Classes](#classes)
+    + [Constructors](#constructors)
+      - [Tips & Tricks](#--tips---tricks--)
+  * [Widgets](#widgets)
+    + [Visible & Invisible widgets](#visible---invisible-widgets)
+    + [Stateful vs Stateless widgets](#stateful-vs-stateless-widgets)
+  * [Public vs Private elements](#public-vs-private-elements)
+
 ## Functions
 
 ```
@@ -160,7 +175,7 @@ void main() {
 }
 ```
 
-#### **Tips & Tricks**
+#### Tips & Tricks
 
 You can define default values for named arguments by using the syntax:
 
@@ -229,4 +244,18 @@ For example, `Text()` is a **stateless widget.**
 
 The difference between **stateless and stateful widgets** is that in a stateless widget, we have our widget and the build method which is used to render the UI. We can pass in data from outside into the stateless widget **through the constructor of that widget class, and this data can change (externally)**. Flutter would rebuild that widget when that external data changes, but **inside of the widget class, the data will never change**, we can only receive new data from outside and that will basically rebuild the widget.
 
-Now, a stateful widget also has a build method that builds a widget and that renders a UI. But here, we can also get our input data, so data passed in through the constructor of the widget class, but we can also have some internal state, and that's the core thing here. This widget will get re-rendered, so the user interface will get updated by Flutter **whenever either that external or internal state changed**. 
+Now, a stateful widget also has a build method that builds a widget and that renders a UI. But here, we can also get our input data, so data passed in through the constructor of the widget class, but we can also have some internal state, and that's the core thing here. This widget will get re-rendered, so the user interface will get updated by Flutter **whenever either that external or internal state changed.**
+
+## Public vs Private elements
+
+As a default in Dart, every file is its own enclosed ecosystem, you could say it's own so-called library. These files can still work together with the help of **import statements**, but you can control what can be imported and what can be accessed in another file.
+
+To inform Dart that an element should only be usable from inside the file it's located into, we **add a leading underscore in front of the name** and in all the places where we call this element (whether it's a class, method, property, etc.).
+
+This might look like a cosmetic thing, but in reality, that leading underscore is a special syntax in Dart that **turns this element**, which is normally a **public element** (meaning it can be used in any file which imports it), **into a private element** and it can only be used/accessed from inside the file that contains it.
+
+This same syntax should be applied to all properties and methods in a private class, to ensure that such elements are only accessible within the class itself.
+
+---
+
+ <small><i><a href='http://ecotrust-canada.github.io/markdown-toc/'>Table of contents generated with markdown-toc</a></i></small>
