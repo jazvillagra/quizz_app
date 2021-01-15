@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import './question.dart';
+import './answer.dart';
 
 /// This is a shorthand for functions which only have one and exactly one
 /// expression, so only one line of code in the function,then you can omit the curly
@@ -63,31 +65,15 @@ class _MyAppState extends State<MyApp> {
           /// but since all items are widgets, Dart will automatically recognize
           /// the data type of the items and assign it to the list.
           children: [
+            /// Question is a custom widget created specifically to display the
+            /// questions of the app. It's a stateless widget that receives the
+            /// question's text as input data
             /// To specify a button's function, onPressed recieves the pointer to
             /// the functions that the button should have
-            Text(questions[_questionIndex]),
-            RaisedButton(
-              child: Text('Red'),
-              onPressed: _answerQuestion,
-            ),
-
-            /// If the function is only going to be executed in a specific place
-            /// or a single specific behavior, you can simply create the function
-            /// in the onPressed instruction
-            RaisedButton(
-              child: Text('Green'),
-              onPressed: () => print('Answered question: Green'),
-            ),
-
-            /// For longer functions, simply replace arrow with curly braces
-            /// and write all function instructions inside them
-            RaisedButton(
-              child: Text('Blue'),
-              onPressed: () {
-                String chosen = 'Blue';
-                print('Answered question: ' + chosen);
-              },
-            )
+            Question(questions[_questionIndex]),
+            Answer(_answerQuestion),
+            Answer(_answerQuestion),
+            Answer(_answerQuestion),
           ],
         ),
       ),
