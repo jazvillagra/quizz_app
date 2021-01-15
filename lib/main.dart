@@ -45,9 +45,21 @@ class _MyAppState extends State<MyApp> {
   /// rendered onto the screen
   @override
   Widget build(BuildContext context) {
+    /// This is an object of type list, that contains various items of type map
+    /// To access the values of the map,
     var questions = [
-      'What\'s your favorite color?',
-      'What\'s your favorite animal?',
+      {
+        'questionText': 'What\'s yout favorite color?',
+        'answers': ['Black', 'Red', 'Green']
+      },
+      {
+        'questionText': 'What\'s your favorite animal?',
+        'answers': ['Rabbit', 'Dog', 'Cat', 'Elephant', 'Lion']
+      },
+      {
+        'questionText': 'What\'s yout favorite city?',
+        'answers': ['Berlin', 'London', 'Madrid', 'Rome']
+      }
     ];
 
     /// MaterialApp takes named arguments
@@ -58,22 +70,33 @@ class _MyAppState extends State<MyApp> {
           title: Text('My first App'),
         ),
 
-        /// this body will contain a column, which holds a list of widgets
+        /// This body will contain a column, which holds a list of widgets
+        /// You can specify the data type the list will contain
+        /// children: <Widget>[]
+        /// but since all items are widgets, Dart will automatically recognize
+        /// the data type of the items and assign it to the list.
         body: Column(
-          /// You can specify the data type the list will contain
-          /// children: <Widget>[]
-          /// but since all items are widgets, Dart will automatically recognize
-          /// the data type of the items and assign it to the list.
           children: [
             /// Question is a custom widget created specifically to display the
             /// questions of the app. It's a stateless widget that receives the
             /// question's text as input data
             /// To specify a button's function, onPressed recieves the pointer to
             /// the functions that the button should have
-            Question(questions[_questionIndex]),
-            Answer(_answerQuestion),
-            Answer(_answerQuestion),
-            Answer(_answerQuestion),
+            Question(
+              questions[_questionIndex]['questionText'],
+            ),
+
+            /// To make the amount of questions & answers dinamic, we can map
+            /// the list of maps into a list of widgets
+            /// what the three preceeding dots do here is they take a list and
+            /// they pull all the values in the list OUT of it and ADD them to
+            /// the surrounding list as INDIVIDUAL VALUES, so that we don't add
+            /// a list to a list, but the values of a list to the list that
+            /// surrounds it
+            ...(questions[_questionIndex]['answers'] as List<String>)
+                .map((answer) {
+              return Answer(_answerQuestion, answer);
+            }).toList()
           ],
         ),
       ),
