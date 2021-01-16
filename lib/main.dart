@@ -46,8 +46,11 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     /// This is an object of type list, that contains various items of type map
-    /// To access the values of the map,
-    var questions = [
+    /// If you know at the time you're writing the code what the final value
+    /// will be and you know that this value will never change, then of course
+    /// it will also never change during runtime but the value, the final value
+    /// is not logged in when your code executes but already after you wrote it
+    const questions = const [
       {
         'questionText': 'What\'s yout favorite color?',
         'answers': ['Black', 'Red', 'Green']
